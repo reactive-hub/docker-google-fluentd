@@ -9,7 +9,7 @@ RUN set -x \
     && curl -sSL "https://repo.stackdriver.com/wheezy.list" -o /etc/apt/sources.list.d/stackdriver.list \
     && ( curl -sSL https://app.stackdriver.com/RPM-GPG-KEY-stackdriver | apt-key add - ) \
     && apt-get update -qq \
-    && apt-get install -qq --no-install-recommends google-fluentd=${GOOGLE_FLUENTD_VERSION} google-fluentd-catch-all-config \
+    && apt-get install -qq --no-install-recommends google-fluentd=${GOOGLE_FLUENTD_VERSION} \
     && apt-get remove -qq --auto-remove curl adduser \
     && apt-get clean -qq \
     && rm -rf /var/lib/apt/lists/*
