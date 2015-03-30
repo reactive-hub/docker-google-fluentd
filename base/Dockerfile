@@ -15,6 +15,10 @@ RUN set -x \
     && apt-get clean -qq \
     && rm -rf /var/lib/apt/lists/*
 
+ENV AUTH_METHOD compute_engine_service_account
+ENV PRIVATE_KEY_EMAIL some@developer.gserviceaccount.com
+ADD google-fluentd.conf /etc/google-fluentd/google-fluentd.conf
+
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
