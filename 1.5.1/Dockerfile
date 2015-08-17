@@ -1,13 +1,13 @@
-FROM debian:wheezy
+FROM debian:jessie
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV GOOGLE_FLUENTD_VERSION 1.3.2
-ENV GOOGLE_FLUENTD_DEB_VERSION 1.3.2-1
+ENV GOOGLE_FLUENTD_VERSION 1.5.1
+ENV GOOGLE_FLUENTD_DEB_VERSION 1.5.1-1
 
 RUN set -x \
     && apt-get update -qq \
     && apt-get install -qq --no-install-recommends curl ca-certificates adduser \
-    && curl -sSL "https://repo.stackdriver.com/wheezy.list" -o /etc/apt/sources.list.d/stackdriver.list \
+    && curl -sSL "https://repo.stackdriver.com/jessie.list" -o /etc/apt/sources.list.d/stackdriver.list \
     && ( curl -sSL https://app.stackdriver.com/RPM-GPG-KEY-stackdriver | apt-key add - ) \
     && apt-get update -qq \
     && apt-get install -qq --no-install-recommends google-fluentd=${GOOGLE_FLUENTD_DEB_VERSION} \
