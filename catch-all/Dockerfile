@@ -1,4 +1,4 @@
-FROM reactivehub/google-fluentd-base:1.3.2
+FROM reactivehub/google-fluentd-base:latest
 
 RUN set -x \
     && apt-get update -qq \
